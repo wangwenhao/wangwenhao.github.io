@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript,vue,vuex,前端," />
 
 
 
@@ -84,12 +84,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="wenhao's note">
-<meta property="og:url" content="http://wangwenhao.github.io/index.html">
+<meta name="description" content="刚刚把 Vue.js 中用于状态管理架构的 Vuex 的文档啃了一遍。
+Vue 组件化之后各个组件都拥有自己的状态，这让状态在组件中的共享变得十分困难，通常用事件的方式把状态推送到其他组件中去，当组件树变得非常大的时候，事件流会变得非常复杂，很难维护，会 Out of Control。
+Vuex 就是为此而诞生的，用 Vuex 来维护一个应用级的状态，它不属于任何特定的组件，组件之间可以共享这个状">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuex初步印象">
+<meta property="og:url" content="http://wangwenhao.github.io/2016/09/09/vuex-overview/index.html">
 <meta property="og:site_name" content="wenhao's note">
+<meta property="og:description" content="刚刚把 Vue.js 中用于状态管理架构的 Vuex 的文档啃了一遍。
+Vue 组件化之后各个组件都拥有自己的状态，这让状态在组件中的共享变得十分困难，通常用事件的方式把状态推送到其他组件中去，当组件树变得非常大的时候，事件流会变得非常复杂，很难维护，会 Out of Control。
+Vuex 就是为此而诞生的，用 Vuex 来维护一个应用级的状态，它不属于任何特定的组件，组件之间可以共享这个状">
+<meta property="og:image" content="http://vuex.vuejs.org/zh-cn/vuex.png">
+<meta property="og:updated_time" content="2016-09-09T16:30:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wenhao's note">
+<meta name="twitter:title" content="vuex初步印象">
+<meta name="twitter:description" content="刚刚把 Vue.js 中用于状态管理架构的 Vuex 的文档啃了一遍。
+Vue 组件化之后各个组件都拥有自己的状态，这让状态在组件中的共享变得十分困难，通常用事件的方式把状态推送到其他组件中去，当组件树变得非常大的时候，事件流会变得非常复杂，很难维护，会 Out of Control。
+Vuex 就是为此而诞生的，用 Vuex 来维护一个应用级的状态，它不属于任何特定的组件，组件之间可以共享这个状">
+<meta name="twitter:image" content="http://vuex.vuejs.org/zh-cn/vuex.png">
 
 
 
@@ -110,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://wangwenhao.github.io/"/>
+  <link rel="canonical" href="http://wangwenhao.github.io/2016/09/09/vuex-overview/"/>
 
-  <title> wenhao's note </title>
+  <title> vuex初步印象 | wenhao's note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,9 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,9 +222,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -234,10 +244,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/09/09/vuex-overview/" itemprop="url">
-                  vuex初步印象
-                </a>
+                vuex初步印象
               
             
           </h1>
@@ -277,9 +284,7 @@
       
 
       
-        
-          
-            <p>刚刚把 Vue.js 中用于状态管理架构的 Vuex 的文档啃了一遍。</p>
+        <p>刚刚把 Vue.js 中用于状态管理架构的 Vuex 的文档啃了一遍。</p>
 <p>Vue 组件化之后各个组件都拥有自己的状态，这让状态在组件中的共享变得十分困难，通常用事件的方式把状态推送到其他组件中去，当组件树变得非常大的时候，事件流会变得非常复杂，很难维护，会 Out of Control。</p>
 <p>Vuex 就是为此而诞生的，用 Vuex 来维护一个应用级的状态，它不属于任何特定的组件，组件之间可以共享这个状态。</p>
 <h2 id="Vuex-数据流"><a href="#Vuex-数据流" class="headerlink" title="Vuex 数据流"></a>Vuex 数据流</h2><p>首先来看一下 Vuex 数据流的一张图，这张图画的十分清晰。</p>
@@ -308,130 +313,65 @@
 </ol>
 <p>Vuex 的主要内容基本上就这些，关于细节方面不多说了。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/08/vue-js-study/" itemprop="url">
-                  Vue.js 读书笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T22:44:07+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
-            
+            <a href="/tags/vue/" rel="tag">#vue</a>
           
-
+            <a href="/tags/vuex/" rel="tag">#vuex</a>
           
-
-          
-          
-
+            <a href="/tags/前端/" rel="tag">#前端</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>最近学习了一下Vue，感觉和React和Angular很像，Angular2也是在往组件化的方向上走，看来这是前端的一个大趋势啊，不禁想起当年拖控件的时代啊，哈哈哈。</p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/08/vue-js-study/" rel="next" title="Vue.js 读书笔记">
+                <i class="fa fa-chevron-left"></i> Vue.js 读书笔记
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -439,6 +379,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -458,8 +402,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -502,6 +455,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex-数据流"><span class="nav-number">1.</span> <span class="nav-text">Vuex 数据流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心内容"><span class="nav-number">2.</span> <span class="nav-text">核心内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#State"><span class="nav-number">2.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Getters"><span class="nav-number">2.2.</span> <span class="nav-text">Getters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mutation"><span class="nav-number">2.3.</span> <span class="nav-text">Mutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Actions"><span class="nav-number">2.4.</span> <span class="nav-text">Actions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些规则"><span class="nav-number">3.</span> <span class="nav-text">一些规则</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -598,6 +562,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
