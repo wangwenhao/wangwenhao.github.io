@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript,vue,前端开发," />
 
 
 
@@ -84,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="wenhao's note">
-<meta property="og:url" content="http://wangwenhao.github.io/index.html">
+<meta name="description" content="2048是一个喜闻乐见的游戏，最近在看 Vue，于是想用 Vue 来实现一下，结果发现并没有用到 Vue 里面的很多内容。
+游戏面板构建首先，构造一个 4 * 4 的游戏面板，很简单的用 ul 和 li 来实现就可以了。1234567&amp;lt;ul id=&quot;game-board&quot;&amp;gt;  &amp;lt;li v-for=&quot;block in blocks&quot;      track-by=&quot;$index&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Vue.js简单实现2048">
+<meta property="og:url" content="http://wangwenhao.github.io/2016/09/19/vue-2048/index.html">
 <meta property="og:site_name" content="wenhao's note">
+<meta property="og:description" content="2048是一个喜闻乐见的游戏，最近在看 Vue，于是想用 Vue 来实现一下，结果发现并没有用到 Vue 里面的很多内容。
+游戏面板构建首先，构造一个 4 * 4 的游戏面板，很简单的用 ul 和 li 来实现就可以了。1234567&amp;lt;ul id=&quot;game-board&quot;&amp;gt;  &amp;lt;li v-for=&quot;block in blocks&quot;      track-by=&quot;$index&quot;">
+<meta property="og:updated_time" content="2016-09-19T15:42:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wenhao's note">
+<meta name="twitter:title" content="用Vue.js简单实现2048">
+<meta name="twitter:description" content="2048是一个喜闻乐见的游戏，最近在看 Vue，于是想用 Vue 来实现一下，结果发现并没有用到 Vue 里面的很多内容。
+游戏面板构建首先，构造一个 4 * 4 的游戏面板，很简单的用 ul 和 li 来实现就可以了。1234567&amp;lt;ul id=&quot;game-board&quot;&amp;gt;  &amp;lt;li v-for=&quot;block in blocks&quot;      track-by=&quot;$index&quot;">
 
 
 
@@ -110,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://wangwenhao.github.io/"/>
+  <link rel="canonical" href="http://wangwenhao.github.io/2016/09/19/vue-2048/"/>
 
-  <title> wenhao's note </title>
+  <title> 用Vue.js简单实现2048 | wenhao's note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,9 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -234,10 +239,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/09/19/vue-2048/" itemprop="url">
-                  用Vue.js简单实现2048
-                </a>
+                用Vue.js简单实现2048
               
             
           </h1>
@@ -277,9 +279,7 @@
       
 
       
-        
-          
-            <p>2048是一个喜闻乐见的游戏，最近在看 Vue，于是想用 Vue 来实现一下，结果发现并没有用到 Vue 里面的很多内容。</p>
+        <p>2048是一个喜闻乐见的游戏，最近在看 Vue，于是想用 Vue 来实现一下，结果发现并没有用到 Vue 里面的很多内容。</p>
 <h2 id="游戏面板构建"><a href="#游戏面板构建" class="headerlink" title="游戏面板构建"></a>游戏面板构建</h2><p>首先，构造一个 4 * 4 的游戏面板，很简单的用 <code>ul</code> 和 <code>li</code> 来实现就可以了。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"game-board"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"block in blocks"</span></span></div><div class="line">      <span class="attr">track-by</span>=<span class="string">"$index"</span></div><div class="line">      <span class="attr">v-text</span>=<span class="string">"block == 0 ? '' : block"</span></div><div class="line">      <span class="attr">:class</span>=<span class="string">"&#123;'empty': block == 0&#125;"</span>&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  data() &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      blocks: [] <span class="comment">// 储存16个格子里的数值，将在组件初始化的时候进行填充。</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    render() &#123;</div><div class="line">      <span class="keyword">this</span>.blocks = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>];</div><div class="line">    &#125;,</div><div class="line">    ready() &#123;</div><div class="line">      <span class="keyword">this</span>.render();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*css样式我就不详细贴出来了，因为没有什么特别的。*/</span></div></pre></td></tr></table></figure>
@@ -316,251 +316,63 @@
 <p>恩，就写到这里吧，只是一个简单的实现，没有加入分数计算和游戏结束的判断，可能明天来写一下，也有可能就不写了，因为我实在是太懒了。</p>
 <p>搞了半天和 Vue 没什么关系，哈哈哈。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/09/vuex-overview/" itemprop="url">
-                  Vuex 初步印象
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-09T23:13:36+08:00" content="2016-09-09">
-              2016-09-09
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
-            
+            <a href="/tags/vue/" rel="tag">#vue</a>
           
-
-          
-
-          
-          
-
+            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>刚刚把 Vue.js 中用于状态管理架构的 Vuex 的文档啃了一遍。</p>
-<p>Vue 组件化之后各个组件都拥有自己的状态，这让状态在组件中的共享变得十分困难，通常用事件的方式把状态推送到其他组件中去，当组件树变得非常大的时候，事件流会变得非常复杂，很难维护，会 Out of Control。</p>
-<p>Vuex 就是为此而诞生的，用 Vuex 来维护一个应用级的状态，它不属于任何特定的组件，组件之间可以共享这个状态。</p>
-<h2 id="Vuex-数据流"><a href="#Vuex-数据流" class="headerlink" title="Vuex 数据流"></a>Vuex 数据流</h2><p>首先来看一下 Vuex 数据流的一张图，这张图画的十分清晰。</p>
-<p><img src="http://vuex.vuejs.org/zh-cn/vuex.png" alt=""></p>
-<p>从组件开始看，当用户对 Vue 的组件进行操作的的时候，组件会调用 <em>Actions</em>，<em>Actions</em> 顾名思义是一系列的动作，由它来决定对 <em>Store</em> 做什么操作，但是它不能直接操作 <em>State</em>，也就是上面所说的状态。按照我的理解，<em>Action</em> 作为一个通知者，把所要做的操作分发到 <em>Mutation</em>，<em>Mutation</em> 会去修改 <em>State</em>，当 <em>State</em> 发生变化会由 <em>Getter</em> 来从 <em>State</em> 里获取 Vue 组件中所需要的数据，从而更新界面。</p>
-<p>看上去很麻烦的样子啊，但是这一切都是建立在我们要构建的是一个大型应用的前提之下的。目的是提高可维护性，降低调试与长期维护的难度。</p>
-<p>接下来就来看一下 Vuex 中几个核心的内容：</p>
-<h2 id="核心内容"><a href="#核心内容" class="headerlink" title="核心内容"></a>核心内容</h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p><em>State</em> 对象包含了全部的应用级状态，是一个唯一数据源。一个应用只有一个 <code>store</code> 实例。</p>
-<p>不过，它是可以分模块的，就像这样：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> module1 <span class="keyword">from</span> <span class="string">'./modules/module1'</span></div><div class="line"><span class="keyword">import</span> module2 <span class="keyword">from</span> <span class="string">'./modules/module2'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">  modules: &#123;</div><div class="line">    module1,</div><div class="line">    module2</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>这里面 <code>module1</code> 和 <code>module2</code> 各自有的 <em>State</em>，子模块的初始状态是作为底层 <code>state</code> 的子树的。在所有子模块上定义的 <em>Mutation</em> 都只能改变当前相关子模块上的 <code>state</code> 子树。</p>
-<h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p><em>Getters</em> 是用来获取 <code>state</code> 中的数据的。好像就这么简单……</p>
-<p>为什么要有它？共享！如果多个组件都会使用同一个 <code>getter</code>，是很高效的，因为它会被缓存，而且当它所依赖的状态发生改变的时候，相应的 <code>getter</code> 只会被计算一遍。</p>
-<h3 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h3><p>它就是一个事件系统，按照惯例 <code>mutation</code> 用全大写命名。它不能直接被调用，而需要用 <code>dispatch</code> 的方式来触发：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ...</span></div><div class="line">  mutations: &#123;</div><div class="line">    MUTATION (state, para) &#123;</div><div class="line">      <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">store.dispatch(<span class="string">'MUTATION'</span>)</div></pre></td></tr></table></figure>
-<p>所有的 <em>Mutation</em> 的第一个参数永远为所属 <code>store</code> 的整个 <code>state</code> 对象。</p>
-<p>注意：<em>Mutation</em> 必须是同步函数！如果在它里面进行异步操作，对于状态的控制将会空前混乱。</p>
-<h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>那么想要进行异步操作的话，应该要把异步的行为放在 <em>Actions</em> 里面。<em>actions</em> 就是用于分发 <em>Mutation</em> 的。</p>
-<p>在组件中，需要将 <em>Actions</em> 暴露到组件方法中去，让组件觉得个它自己本身的 <em>methods</em> 没有差别。</p>
-<h2 id="一些规则"><a href="#一些规则" class="headerlink" title="一些规则"></a>一些规则</h2><ol>
-<li>应用 <code>state</code> 存在于单个对象中；</li>
-<li>只有 <code>mutation handlers</code> 可以改变 <code>state</code>；</li>
-<li><em>Mutations</em> 必须是同步的，它们做的应该仅仅是改变 <code>state</code>；</li>
-<li>所有类似数据获取的异步操作细节都应封装在 <code>actions</code> 里面。</li>
-<li>组件通过 <code>getters</code> 从 <code>store</code> 中获取 <code>state</code>，并通过调用 <code>actions</code> 来改变 <code>state</code>。</li>
-</ol>
-<p>Vuex 的主要内容基本上就这些，关于细节方面不多说了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/09/vuex-overview/" rel="next" title="Vuex 初步印象">
+                <i class="fa fa-chevron-left"></i> Vuex 初步印象
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/09/08/vue-js-study/" itemprop="url">
-                  Vue.js 读书笔记
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T22:44:07+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>最近学习了一下Vue，感觉和React和Angular很像，Angular2也是在往组件化的方向上走，看来这是前端的一个大趋势啊，不禁想起当年拖控件的时代啊，哈哈哈。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -568,6 +380,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -587,8 +403,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -631,6 +456,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏面板构建"><span class="nav-number">1.</span> <span class="nav-text">游戏面板构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏初始化"><span class="nav-number">2.</span> <span class="nav-text">游戏初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加入事件"><span class="nav-number">3.</span> <span class="nav-text">加入事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑实现"><span class="nav-number">4.</span> <span class="nav-text">逻辑实现</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -727,6 +563,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
