@@ -1,7 +1,7 @@
 ---
 title: Vuex 初步印象
 date: 2016-09-09 23:13:36
-tags: [javascript, vue, vuex, 前端]
+tags: [javascript, vue, vuex, 前端开发]
 ---
 刚刚把 Vue.js 中用于状态管理架构的 Vuex 的文档啃了一遍。
 
