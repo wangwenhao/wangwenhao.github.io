@@ -1,0 +1,611 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS,前端开发，翻译," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原文地址
+有一些极其强大的 CSS 属性有着很好的浏览器支持，但是开发者们却极少用到。currentColor 就是其中之一。
+MDN defines currentColor as
+在 MDN 上对 currentColor 是这么定义的。
+
+The currentColor keyword represents the calculated value of the element’s col">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】使用 currentColor 属性写出更好的 CSS 代码">
+<meta property="og:url" content="http://wangwenhao.github.io/2016/09/21/writing-better-css-with-currentcolor/index.html">
+<meta property="og:site_name" content="wenhao's notes">
+<meta property="og:description" content="原文地址
+有一些极其强大的 CSS 属性有着很好的浏览器支持，但是开发者们却极少用到。currentColor 就是其中之一。
+MDN defines currentColor as
+在 MDN 上对 currentColor 是这么定义的。
+
+The currentColor keyword represents the calculated value of the element’s col">
+<meta property="og:image" content="https://res.cloudinary.com/hashnode/image/upload/v1474021764/g03f4hx1ftb0frtoonfw.png">
+<meta property="og:updated_time" content="2016-09-21T07:53:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】使用 currentColor 属性写出更好的 CSS 代码">
+<meta name="twitter:description" content="原文地址
+有一些极其强大的 CSS 属性有着很好的浏览器支持，但是开发者们却极少用到。currentColor 就是其中之一。
+MDN defines currentColor as
+在 MDN 上对 currentColor 是这么定义的。
+
+The currentColor keyword represents the calculated value of the element’s col">
+<meta name="twitter:image" content="https://res.cloudinary.com/hashnode/image/upload/v1474021764/g03f4hx1ftb0frtoonfw.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://wangwenhao.github.io/2016/09/21/writing-better-css-with-currentcolor/"/>
+
+  <title> 【译】使用 currentColor 属性写出更好的 CSS 代码 | wenhao's notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wenhao's notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【译】使用 currentColor 属性写出更好的 CSS 代码
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-21T15:44:06+08:00" content="2016-09-21">
+              2016-09-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://hashnode.com/post/writing-better-css-with-currentcolor-cit5mgva31co79c53ia20vetq" target="_blank" rel="external">原文地址</a></p>
+<p>有一些极其强大的 CSS 属性有着很好的浏览器支持，但是开发者们却极少用到。<code>currentColor</code> 就是其中之一。</p>
+<p>MDN defines currentColor as</p>
+<p>在 MDN 上对 currentColor 是这么<a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value#currentColor_keyword" target="_blank" rel="external">定义</a>的。</p>
+<blockquote>
+<p>The currentColor keyword represents the calculated value of the element’s color property. It allows to make the color properties inherited by properties or child’s element properties that do not inherit it by default.</p>
+<p><code>currentColor</code> 关键字表示了元素的颜色属性的计算值。它可以使元素的属性中使用颜色的时候继承本身的 <code>color</code> 属性，或者子元素可以从父元素继承颜色属性。简言之，它改变了元素的默认继承属性。</p>
+</blockquote>
+<p>In this article, let’s get an overview on how to use CSS currentColor keyword in some interesting ways.</p>
+<p>在这篇文章里，我们来看看如何来使用 CSS 的 <code>currentColor</code> 关键字。有很多很有趣的方式。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>currentColor</code> 关键字获取 <code>color</code> 属性中的颜色值，把它保存在自身的一个规则里。</p>
+<p>当你想继承使用 <code>color</code> 属性中的颜色值的时候，就可以用 <code>currentColor</code> 关键字。如此一来，当你修改了 <code>color</code> 属性的值，所有用 <code>currentColor</code> 关键字来引用这个颜色值的地方都会相应的自动修改。是不是很棒？</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">    color: red;</div><div class="line">    border 1px solid currentColor;</div><div class="line">    box-shadow: 0 0 2px 2px currentColor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在上面的代码中，可以看到我们没有到处重复使用相同的颜色值，而是使用 <code>currentColor</code> 关键字。这样带来的好处就是使得 CSS 变得更好维护了，我们不需要再到处去维护颜色值了。</p>
+<h2 id="可能的用法"><a href="#可能的用法" class="headerlink" title="可能的用法"></a>可能的用法</h2><p>让我们来看看一些 <code>currentColor</code> 的用例和例子。</p>
+<h3 id="简化颜色定义"><a href="#简化颜色定义" class="headerlink" title="简化颜色定义"></a>简化颜色定义</h3><p>像链接，边框，图标和阴影经常会使用和他们父元素相同的颜色，用 <code>currentColor</code> 值来表示颜色值避免了在很多地方去用各自的颜色值，从而提高代码的可维护性。</p>
+<p>举个例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">    color: red;</div><div class="line">&#125;</div><div class="line">.box .child-1 &#123;</div><div class="line">    background: currentColor;</div><div class="line">&#125;</div><div class="line">.box .child-2 &#123;</div><div class="line">    color: currentColor;</div><div class="line">    border 1px solid currentColor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在上面的代码段中，可以看见没有给 <code>background</code>、<code>border</code> 属性指定某个颜色，而是用 <code>currentColor</code> 来代替。这样一来，它们就都是红色了。</p>
+<h3 id="简化过渡和动画"><a href="#简化过渡和动画" class="headerlink" title="简化过渡和动画"></a>简化过渡和动画</h3><p><code>currentColor</code> 能让过渡和动画变得更简单。</p>
+<p>让我们来看一下之前的一个例子，增加改变悬停的颜色的效果。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">color</span>: purple;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这里，没有在 <code>:hover</code> 里重新定义三个颜色值，而只是修改了 <code>color</code> 属性的值。所有使用了 <code>currentColor</code> 的属性都会在有悬停的时候自动应用这个修改。</p>
+<h3 id="在伪元素中的应用"><a href="#在伪元素中的应用" class="headerlink" title="在伪元素中的应用"></a>在伪元素中的应用</h3><p>类似 <code>:before</code> 和 <code>:after</code> 这样的伪元素也会从它们的与元素继承 <code>currentColor</code> 的值。这可以应用在诸如有动态颜色的提示（tooltips），覆盖层（overlays），还可以给它加上一个具有透明度的效果。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">    <span class="attribute">color</span>: currentColor;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid currentColor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这段代码里，<code>:before</code> 伪元素继承了父元素的颜色值，将父元素的值用在了 <code>color</code> 和 <code>border-color</code> 上，用这个机制，可以实现像 tooltips 之类的东西。</p>
+<h3 id="和-SVG-配合使用"><a href="#和-SVG-配合使用" class="headerlink" title="和 SVG 配合使用"></a>和 SVG 配合使用</h3><p>SVG 也可以从父元素里获取 <code>currentColor</code> 的值。当在不同的地方使用这个 SVG 的时候，如果想要直接继承所在父元素的颜色而不想每次都都指定，这真的是一个很有用的方法。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">svg</span> &#123;</div><div class="line">    <span class="attribute">fill</span>: currentColor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这个例子中， svg 和它的父元素会有相同的填充色，也会跟着父元素的颜色的修改而动态变化。</p>
+<h3 id="和渐变配合使用"><a href="#和渐变配合使用" class="headerlink" title="和渐变配合使用"></a>和渐变配合使用</h3><p><code>currentColor</code> 还可以用在渐变中，如果渐变中的一种颜色是父元素的颜色的话，是很方便的。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(top bottom right, currentColor, #FFFFFF);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在上面的例子中，顶部的渐变色总是和父元素的颜色相同。虽然在这个例子中只能使用一种颜色来动态赋值，但不得不承认这是一个很巧妙的技巧来生成基于父元素颜色的动态渐变。</p>
+<p>这里有一个 <a href="http://codepen.io/alkshendra/pen/xEVrJJ?editors=1100#0" target="_blank" rel="external">Codepen 上的例子</a>，演示了上面所有的用例。</p>
+<h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><p>CSS 的 <code>currentColor</code> 属性是从 SVG 细则中引入 CSS3 的，其实它 2003 年就在存在了。因此，对于 <code>currentColor</code> 的支持已经十分广泛了，IE8 及以下版本是个例外。</p>
+<p>下面这张图表是从 <a href="http://caniuse.com/#feat=currentcolor" target="_blank" rel="external">caniuse.com</a> 网站查询得到的：</p>
+<p><img src="https://res.cloudinary.com/hashnode/image/upload/v1474021764/g03f4hx1ftb0frtoonfw.png" alt="currentColor 浏览器支持"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>CSS 的 <code>currentColor</code> 属性是一个未被充分使用的强大特性。它的支持性很好，并且带来了更多的方式来让我们的代码变得更清晰。</p>
+<p>由于 CSS 变量还在试验阶段，习惯使用 <code>currentColor</code> 属性绝对对你是很有帮助的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/前端开发，翻译/" rel="tag">#前端开发，翻译</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/19/vue-2048/" rel="next" title="用Vue.js简单实现2048">
+                <i class="fa fa-chevron-left"></i> 用Vue.js简单实现2048
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="wenhao" />
+          <p class="site-author-name" itemprop="name">wenhao</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能的用法"><span class="nav-number">2.</span> <span class="nav-text">可能的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简化颜色定义"><span class="nav-number">2.1.</span> <span class="nav-text">简化颜色定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化过渡和动画"><span class="nav-number">2.2.</span> <span class="nav-text">简化过渡和动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在伪元素中的应用"><span class="nav-number">2.3.</span> <span class="nav-text">在伪元素中的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和-SVG-配合使用"><span class="nav-number">2.4.</span> <span class="nav-text">和 SVG 配合使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和渐变配合使用"><span class="nav-number">2.5.</span> <span class="nav-text">和渐变配合使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器支持"><span class="nav-number">3.</span> <span class="nav-text">浏览器支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wenhao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
